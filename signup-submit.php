@@ -1,7 +1,7 @@
 <?php include("top.html"); ?>
 <?php
 
-// Set default values for all variables the page needs.
+/* Set default values for all variables the page needs. */
 $errors = array();
 $user = array(
     'name' => '',
@@ -36,13 +36,13 @@ if(isset($_POST['max_seeking_age'])){
     $user['max_seeking_age'] = ($_POST['max_seeking_age']);
 }
 
-
+/* check: names cannot be digits */
 if (preg_match("/[0-9]/", $_POST["name"]) === 1) {
     $errors[] = "Name cannot be digits";
 
 }
 
-// alphabetic letters with the first letter of each world capitalized.
+/* alphabetic letters with the first letter of each world capitalized. */
 $words = explode(" ", $user["name"]);
 for ($i = 0; $i < count($words); $i++) {
     if(strcmp(ucfirst($words[$i]),$words[$i]) !== 0) {
@@ -51,7 +51,7 @@ for ($i = 0; $i < count($words); $i++) {
     }
 }
 
-//validate age
+/*validate age */
 if (!is_numeric($user["age"])) {
     $errors[] = "Age is not a number.";
 }
@@ -74,7 +74,7 @@ if (!is_numeric($_POST["min_seeking_age"])) {
 if (!is_numeric($_POST["max_seeking_age"])) {
     $errors[] = "Max seeking age is not a number.";
 }
-// Write to singles.txt after validation.
+/* Write to singles.txt after validation. */
 if (empty($errors)) {
     //parse form details into a one line
     $user_details = $user;
@@ -89,15 +89,18 @@ if (empty($errors)) {
 <?php
 }
 else {
-    $output .= "<div class=\"errors\">";
-    $output .= "Please fix the following errors:";
-    $output .= "<ul>";
+?>
+    <div class="errors">
+        Please fix the following errors:
+        <ul>
+<?php
     foreach ($errors as $error) {
-        $output .= "<li>{$error}</li>";
-    }
-    $output .= "</ul>";
-    $output .= "</div>";
-    echo $output;
+?>
+            <li><?= $error ?> </li>
+    <?php } ?>
+        </ul>
+    </div>
+<?php
 }
 ?>
 <?php include("bottom.html"); ?>
