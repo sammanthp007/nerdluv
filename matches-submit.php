@@ -51,17 +51,17 @@ for ($i = 0; $i < count($singles); $i++) {
 
     /* Check gender */
     if (strcmp($match_gender, $other_gender) === 0) {
-        
+
         /* Check age compatibility */
         $user_matches_others_choice = NULL;
         $other_matches_users_choice = NULL;
 
         if ($other_min_seek <= $user_age && $user_age <= $other_max_seek)
             $user_matches_others_choice = TRUE;
-        
+
         if($user_min_seek <= $other_age && $other_age <= $user_max_age)
             $other_matches_users_choice = TRUE;
-        
+
         /* Check favorite OS */
         if($user_matches_others_choice && $other_matches_users_choice){
             if (strcmp($user_os, $other_os) === 0) {
@@ -70,30 +70,24 @@ for ($i = 0; $i < count($singles); $i++) {
                 $inRegex = "/[".$user_personality."]/";
                 if (preg_match($inRegex, $other_personality) === 1) {
                     $matches[] = $singles[$i];
-                    
+
                     if ($is_first) {
-                    echo '<b>Matches for ' . $_GET["name"] . '</b>';
-                    $is_first = false;
-                }
+                        echo '<b>Matches for ' . $_GET["name"] . '</b>';
+                        $is_first = false;
+                    }
 ?>
-                <li>
-                    <table>
-                        <tr>
-                            <td>
-                                <img src="user.jpg" />
-                            </td>
-                            <td>
-                        <p id="matchname"><?= $other_info_array[0] ?></p><br>
-                        <ul>
-                            <li>gender: <?= $other_gender ?></li>
-                             <li> age: <?= $other_age ?> </li>
-                             <li> type: <?= $other_personality ?> </li>
-                             <li> OS: <?= $other_os ?></li>
-                        </ul>
-                            </td>
-                        </tr>
-                    </table>
-                </li>
+            <div class="match">
+                <img src="user.jpg" />
+                <div>
+                <p id="matchname"><?= $other_info_array[0] ?></p><br>
+                <ul>
+                    <li><strong>gender:</strong> <?= $other_gender ?></li>
+                    <li><strong> age:</strong> <?= $other_age ?> </li>
+                    <li><strong> type:</strong> <?= $other_personality ?> </li>
+                    <li><strong> OS:</strong> <?= $other_os ?></li>
+                </ul>
+                </div>
+            </div>
 <?php
                 }
             }
