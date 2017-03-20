@@ -26,16 +26,19 @@ or Female. When the user clicks the text next to a radio button,
 ## For submit-signup.php
    - [x] When the user presses "Sign Up," the form should submit its data as a POST to signup-submit.php. 
    The exact names and values of the query parameter(s) are up to you.
-   - [ ] your PHP code should read the data from the query parameters and store it as described.
-   - [ ] The resulting page has the usual header and footer and text
+   - [x] your PHP code should read the data from the query parameters and store it as described.
+   - [x] The resulting page has the usual header and footer and text
    thanking the user.
-   - [ ] The text "log in to see your matches!" links to
+   - [x] The text "log in to see your matches!" links to
    matches.php.
-   - [ ] Your site's user data is stored in a file singles.txt, placed in the same folder as your PHP files.
+   - [x] Your site's user data is stored in a file singles.txt, placed in the same folder as your PHP files.
    We will provide you an initial version of this file.
-   - [ ] Your signup-submit.php code should create a line representing the new user's information and add it to the end of the file.
+   - [x] Your signup-submit.php code should create a line representing the new user's information and add it to the end of the file.
    See the PHP file_put_contents function in book Chapter 5 or the lecture slides.
-   - [ ] In all pages, validate data for form submissions. Make sure no field is left blank and all the input conforms to the required
+   - [x] In all pages, validate data for form submissions. Make sure no field is left blank and all the input conforms to the required
    format.
-   - [ ] If there is an error, show the errors on the page by replacing the three lines of text starting at "Thank you!" in the
+   - [x] If there is an error, show the errors on the page by replacing the three lines of text starting at "Thank you!" in the
    example above. There is no need to check duplicate names.
+
+## For matches.php
+

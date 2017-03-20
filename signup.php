@@ -47,8 +47,8 @@
             Seeking age:
         </td>
         <td>
-            <input type="text" name="min_seek_age" size="6" maxlength="2" placeholder="min"> to
-            <input type="text" name="max_seek_age" size="6" maxlength="2" placeholder="max">
+            <input type="text" name="min_seeking_age" size="6" maxlength="2" placeholder="min"> to
+            <input type="text" name="max_seeking_age" size="6" maxlength="2" placeholder="max">
         </td>
     </tr>
     <tr>

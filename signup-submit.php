@@ -1,25 +1,59 @@
 <?php include("top.html"); ?>
 <?php
-$has_error = FALSE;
+
+// Set default values for all variables the page needs.
+$errors = array();
+$user = array(
+    'name' => '',
+    'gender' => '',
+    'age' => '',
+    'personality_type' => '',
+    'favorite_os' => '',
+    'max_seeking_age' => '',
+    'min_seeking_age' => ''
+);
+
+// Confirm that values are present before accessing them.
+    if(isset($_POST['name'])) {
+        $user['name'] = urlencode($_POST['name']);
+    }
+    if(isset($_POST['gender'])) {
+        $user['gender'] = urlencode($_POST['gender']);
+    }
+    if(isset($_POST['age'])) {
+        $user['age'] = urlencode($_POST['age']);
+    }
+    if(isset($_POST['personality_type'])) {
+        $user['personality_type'] = ($_POST['personality_type']);
+    }
+    if(isset($_POST['os'])) {
+        $user['favorite_os'] = ($_POST['os']);
+    }
+    if(isset($_POST['min_seeking_age'])){
+        $user['min_seeking_age'] = ($_POST['min_seeking_age']);
+    }
+    if(isset($_POST['max_seeking_age'])){
+        $user['max_seeking_age'] = ($_POST['max_seeking_age']);
+    }
 
 
 if (preg_match("/[0-9]/", $_POST["name"]) === 1) {
-    $has_error = TRUE;
+    $errors[] = "Name cannot be digits";
 
 }
-// every unique word should start with upper case letter
-$name_list = explode(" ", $_POST["name"]);
-for ($i = 0; $i < count($name_list); $i++) {
-    if(strcmp(ucfirst($name_list[$i]),$name_list[$i]) !== 0) {
-        $has_error = TRUE;
+
+// alphabetic letters with the first letter of each world capitalized.
+$words = explode(" ", $user["name"]);
+for ($i = 0; $i < count($words); $i++) {
+    if(strcmp(ucfirst($words[$i]),$words[$i]) !== 0) {
+        $errors[] = "Name must be capitalized";
         break;
     }
 }
 
 //validate age
-if (!is_numeric($_POST["age"])) {
-    echo "Age is not a number.";
-    $has_error = TRUE;
+if (!is_numeric($user["age"])) {
+    $errors[] = "Age is not a number.";
 }
 
 //validate personality type
@@ -28,40 +62,42 @@ $personality = array("ESTJ", "ISTJ", "ENTJ", "INTJ",
                     "ESFJ", "ISFJ", "ENFJ", "INFJ", 
                     "ESFP", "ISFP", "ENFP", "INFP"
                 );
-if (!in_array($_POST["personality_type"], $personality)) {
-    echo "Enter a valid Personality type";
-    $has_error = TRUE;
+if (!in_array($user["personality_type"], $personality)) {
+    $errors[] = "Invalid Personality type";
 }
 
 // validate min/max seeking age.
-if (!is_numeric($_POST["min_seek_age"])) {
-    echo "Min seeking age is not a number.";
-    $has_error = TRUE;
+if (!is_numeric($_POST["min_seeking_age"])) {
+    $errors[] = "Min seeking age is not a number.";
 }
 
-if (!is_numeric($_POST["max_seek_age"])) {
-    echo "Max seeking age is not a number.";
-    $has_error = TRUE;
+if (!is_numeric($_POST["max_seeking_age"])) {
+    $errors[] = "Max seeking age is not a number.";
 }
 // Write to singles.txt after validation. 
-if (!$has_error) {
+if (empty($errors)) {
     //parse form details into a one line
-    $user_details = array($_POST["name"],
-                        $_POST["gender"],
-                        $_POST["age"],
-                        $_POST["personality_type"],
-                        $_POST["os"],
-                        $_POST["min_seek_age"],
-                        $_POST["max_seek_age"]
-                    );
-    $user_info_to_write = implode(",", $user_details);
-    echo $user_info_to_write;
-    file_put_contents("singles.txt", PHP_EOL.$user_info_to_write, FILE_APPEND);
+    $user_details = $user;
+    $to_write = implode(",", $user_details);
+    file_put_contents("singles.txt", PHP_EOL.$to_write, FILE_APPEND);
 ?>
     <pre>
         Thank you
-        Welcome to NerdLuv, <?= $_POST["name"] ?>!
-        Now log in to see your matches!
+        Welcome to NerdLuv, <?= $user["name"] ?>!
+        Now <a href="matches.php">log in to see your matches!</a>
     </pre>
-<?php } ?>
+<?php 
+}
+else {
+    $output .= "<div class=\"errors\">";
+      $output .= "Please fix the following errors:";
+      $output .= "<ul>";
+      foreach ($errors as $error) {
+        $output .= "<li>{$error}</li>";
+      }
+      $output .= "</ul>";
+      $output .= "</div>";
+      echo $output;
+}
+?>
 <?php include("bottom.html"); ?>
