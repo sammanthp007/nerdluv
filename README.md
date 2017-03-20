@@ -41,4 +41,14 @@ or Female. When the user clicks the text next to a radio button,
    example above. There is no need to check duplicate names.
 
 ## For matches.php
-
+- [x] The matches.php page has a header logo, a form to log in and
+view the user's matches, and footer notes/images. 
+- [ ]You must write the HTML for the form. The form has one field:
+ Name: A label and 16-letter box for the user to type a name.
+Initially empty. 
+- [ ] Submit to the server as a query parameter name.
+- [ ] When the user presses "View My Matches," the form submits its
+data as a GET request to matches-submit.php. 
+- [ ] The name of the query parameter sent should be name, and its value should be the encoded text typed by the user.
+For example, when the user views matches for Rosie O Donnell, the URL should be:
+ matches-submit.php?name=Rosie+O+Donnell
