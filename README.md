@@ -74,3 +74,27 @@ in the order they were originally found in the file. Each match has
 the image user.jpg, the person's name, and an unordered list with
 their gender, age, personality type, and OS.
 If no match is found, display a message of "No match is found.".
+
+## For grading
+- [x] Your HTML output for all pages must pass the W3C HTML validator. (Not the PHP source code itself, but the HTML
+output it generates.) Do not use HTML tables. Since we are using HTML forms, choose proper form controls and set their
+attributes accordingly. Properly choose between GET and POST requests for sending data.
+- [ ] Your PHP code should not cause errors or warnings. Minimize use of the global keyword, use indentation/spacing, and
+avoid lines over 100 characters. Use material from the first four weeks of class and the first six book chapters.
+- [ ] Some HTML sections are shared redundantly between your PHP pages, found in the provided files top.html and
+bottom.html. Include these files as appropriate in your other pages using the PHP include function.
+- [ ] A major grading focus is redundancy. Use functions, parameters/return, included files/code, loops, variables, etc. to
+avoid redundancy. If you have PHP code you want to share between multiple pages, you may turn in an optional file named
+common.php containing this code. You can include your common.php in your other pages.
+- [ ] For full credit, reduce the amount of large chunks of PHP code in the middle of HTML code. Replace such chunks with
+functions declared at the top or bottom of your file. You will also lose points if you use PHP print or echo statements. Insert
+dynamic content into the page using PHP expression blocks, <?= ... ?> , as taught in class.
+- [ ] Another grading focus is PHP commenting. Put a descriptive comment header at the top of each file, each function, and
+each section of PHP code.
+- [ ] Format your HTML and PHP code similarly to the examples from class. Properly use whitespace and indentation. Do not
+place more than one block element on a line or begin a block element past the 100th character.
+- [ ] Part of your grade will also come from successfully uploading your files to the web. You should place your files into a
+hosting server. Some are free, such as https://www.000webhost.com and https://x10hosting.com (use your gmail address to
+sign up). Your page should be accessible from anywhere.
+- [ ] Submit your assignment online at http://www.networks.howard.edu/lij/courses/submit_hw.html. The following files should
+be submitted after zipped into a single archive:

@@ -55,3 +55,4 @@ Utsab,M,21,ENTP,Windows,15,50
 Rita,F,21,ENFP,Mac OS X,19,22
 
 Ranja,M,32,ENTP,Mac OS X,22,33
+Pingu,M,29,ENTP,Linux,18,33

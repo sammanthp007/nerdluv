@@ -36,7 +36,7 @@ $matches = array();
 
 /* Get matches */
 ?>
-<ul>
+<div>
 <?php
 $is_first = true;
 for ($i = 0; $i < count($singles); $i++) {
@@ -72,20 +72,22 @@ for ($i = 0; $i < count($singles); $i++) {
                     $matches[] = $singles[$i];
 
                     if ($is_first) {
-                        echo '<b>Matches for ' . $_GET["name"] . '</b>';
+?>
+    <strong>Matches for <?= $_GET["name"] ?></strong><br>
+<?php
                         $is_first = false;
                     }
 ?>
             <div class="match">
-                <img src="user.jpg" />
+                <img src="user.jpg" alt="photo"/>
                 <div>
-                <p id="matchname"><?= $other_info_array[0] ?></p><br>
-                <ul>
-                    <li><strong>gender:</strong> <?= $other_gender ?></li>
-                    <li><strong> age:</strong> <?= $other_age ?> </li>
-                    <li><strong> type:</strong> <?= $other_personality ?> </li>
-                    <li><strong> OS:</strong> <?= $other_os ?></li>
-                </ul>
+                    <ul>
+                        <li><p><?= $other_info_array[0] ?></p></li>
+                        <li><strong>gender:</strong> <?= $other_gender ?></li>
+                        <li><strong> age:</strong> <?= $other_age ?> </li>
+                        <li><strong> type:</strong> <?= $other_personality ?> </li>
+                        <li><strong> OS:</strong> <?= $other_os ?></li>
+                    </ul>
                 </div>
             </div>
 <?php
@@ -95,7 +97,7 @@ for ($i = 0; $i < count($singles); $i++) {
     }
 }
 ?>
-</ul>
+</div>
 
 <?php
 if (count($matches) === 0) {
