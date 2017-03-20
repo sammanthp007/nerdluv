@@ -79,7 +79,7 @@ If no match is found, display a message of "No match is found.".
 - [x] Your HTML output for all pages must pass the W3C HTML validator. (Not the PHP source code itself, but the HTML
 output it generates.) Do not use HTML tables. Since we are using HTML forms, choose proper form controls and set their
 attributes accordingly. Properly choose between GET and POST requests for sending data.
-- [ ] Your PHP code should not cause errors or warnings. Minimize use of the global keyword, use indentation/spacing, and
+- [x] Your PHP code should not cause errors or warnings. Minimize use of the global keyword, use indentation/spacing, and
 avoid lines over 100 characters. Use material from the first four weeks of class and the first six book chapters.
 - [ ] Some HTML sections are shared redundantly between your PHP pages, found in the provided files top.html and
 bottom.html. Include these files as appropriate in your other pages using the PHP include function.

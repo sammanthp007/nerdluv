@@ -73,23 +73,23 @@ for ($i = 0; $i < count($singles); $i++) {
 
                     if ($is_first) {
 ?>
-    <strong>Matches for <?= $_GET["name"] ?></strong><br>
+        <strong>Matches for <?= $_GET["name"] ?></strong><br>
 <?php
                         $is_first = false;
                     }
 ?>
-            <div class="match">
-                <img src="user.jpg" alt="photo"/>
-                <div>
-                    <ul>
-                        <li><p><?= $other_info_array[0] ?></p></li>
-                        <li><strong>gender:</strong> <?= $other_gender ?></li>
-                        <li><strong> age:</strong> <?= $other_age ?> </li>
-                        <li><strong> type:</strong> <?= $other_personality ?> </li>
-                        <li><strong> OS:</strong> <?= $other_os ?></li>
-                    </ul>
-                </div>
-            </div>
+  <div class="match">
+      <img src="user.jpg" alt="photo"/>
+      <div>
+          <ul>
+              <li><p><?= $other_info_array[0] ?></p></li>
+              <li><strong>gender:</strong> <?= $other_gender ?></li>
+              <li><strong> age:</strong> <?= $other_age ?> </li>
+              <li><strong> type:</strong> <?= $other_personality ?> </li>
+              <li><strong> OS:</strong> <?= $other_os ?></li>
+          </ul>
+      </div>
+  </div>
 <?php
                 }
             }
@@ -102,7 +102,7 @@ for ($i = 0; $i < count($singles); $i++) {
 <?php
 if (count($matches) === 0) {
 ?>
-    <div> No match is found. </div>
+<div> No match is found. </div>
 <?php
 }
 include("bottom.html"); ?>

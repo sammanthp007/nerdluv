@@ -13,28 +13,28 @@ $user = array(
     'max_seeking_age' => ''
 );
 
-// Confirm that values are present before accessing them.
-    if(isset($_POST['name'])) {
-        $user['name'] = urlencode($_POST['name']);
-    }
-    if(isset($_POST['gender'])) {
-        $user['gender'] = urlencode($_POST['gender']);
-    }
-    if(isset($_POST['age'])) {
-        $user['age'] = urlencode($_POST['age']);
-    }
-    if(isset($_POST['personality_type'])) {
-        $user['personality_type'] = ($_POST['personality_type']);
-    }
-    if(isset($_POST['os'])) {
-        $user['favorite_os'] = ($_POST['os']);
-    }
-    if(isset($_POST['min_seeking_age'])){
-        $user['min_seeking_age'] = ($_POST['min_seeking_age']);
-    }
-    if(isset($_POST['max_seeking_age'])){
-        $user['max_seeking_age'] = ($_POST['max_seeking_age']);
-    }
+/* Confirm that values are present before accessing them. */
+if(isset($_POST['name'])) {
+    $user['name'] = urlencode($_POST['name']);
+}
+if(isset($_POST['gender'])) {
+    $user['gender'] = urlencode($_POST['gender']);
+}
+if(isset($_POST['age'])) {
+    $user['age'] = urlencode($_POST['age']);
+}
+if(isset($_POST['personality_type'])) {
+    $user['personality_type'] = ($_POST['personality_type']);
+}
+if(isset($_POST['os'])) {
+    $user['favorite_os'] = ($_POST['os']);
+}
+if(isset($_POST['min_seeking_age'])){
+    $user['min_seeking_age'] = ($_POST['min_seeking_age']);
+}
+if(isset($_POST['max_seeking_age'])){
+    $user['max_seeking_age'] = ($_POST['max_seeking_age']);
+}
 
 
 if (preg_match("/[0-9]/", $_POST["name"]) === 1) {
@@ -57,11 +57,11 @@ if (!is_numeric($user["age"])) {
 }
 
 //validate personality type
-$personality = array("ESTJ", "ISTJ", "ENTJ", "INTJ", 
-                    "ESTP", "ISTP", "ENTP", "INTP", 
-                    "ESFJ", "ISFJ", "ENFJ", "INFJ", 
-                    "ESFP", "ISFP", "ENFP", "INFP"
-                );
+$personality = array("ESTJ", "ISTJ", "ENTJ", "INTJ",
+    "ESTP", "ISTP", "ENTP", "INTP",
+    "ESFJ", "ISFJ", "ENFJ", "INFJ",
+    "ESFP", "ISFP", "ENFP", "INFP"
+);
 if (!in_array($user["personality_type"], $personality)) {
     $errors[] = "Invalid Personality type";
 }
@@ -74,7 +74,7 @@ if (!is_numeric($_POST["min_seeking_age"])) {
 if (!is_numeric($_POST["max_seeking_age"])) {
     $errors[] = "Max seeking age is not a number.";
 }
-// Write to singles.txt after validation. 
+// Write to singles.txt after validation.
 if (empty($errors)) {
     //parse form details into a one line
     $user_details = $user;
@@ -86,18 +86,18 @@ if (empty($errors)) {
         Welcome to NerdLuv, <?= $user["name"] ?>!
         Now <a href="matches.php">log in to see your matches!</a>
     </pre>
-<?php 
+<?php
 }
 else {
     $output .= "<div class=\"errors\">";
-      $output .= "Please fix the following errors:";
-      $output .= "<ul>";
-      foreach ($errors as $error) {
+    $output .= "Please fix the following errors:";
+    $output .= "<ul>";
+    foreach ($errors as $error) {
         $output .= "<li>{$error}</li>";
-      }
-      $output .= "</ul>";
-      $output .= "</div>";
-      echo $output;
+    }
+    $output .= "</ul>";
+    $output .= "</div>";
+    echo $output;
 }
 ?>
 <?php include("bottom.html"); ?>
