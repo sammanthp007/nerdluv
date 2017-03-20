@@ -9,8 +9,8 @@ $user = array(
     'age' => '',
     'personality_type' => '',
     'favorite_os' => '',
-    'max_seeking_age' => '',
-    'min_seeking_age' => ''
+    'min_seeking_age' => '',
+    'max_seeking_age' => ''
 );
 
 // Confirm that values are present before accessing them.
