@@ -4,7 +4,7 @@
     <h1>New User Signup:</h1>
 
 <table>
-    <form action="support_files/signup-submit.php" method="post">
+    <form action="signup-submit.php" method="post">
     <tr>
         <td>Name:</td> 
         <td>
