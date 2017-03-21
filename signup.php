@@ -24,7 +24,7 @@
             <option value="Mac OS X" > Mac OS X</option>
             <option value="Windows" selected> Windows</option>
         </select><br><br>
-        
+
         <strong class="column">Seeking age:</strong>
         <input type="text" name="min_seeking_age" size="6" maxlength="2" placeholder="min"> to
         <input type="text" name="max_seeking_age" size="6" maxlength="2" placeholder="max"><br><br>

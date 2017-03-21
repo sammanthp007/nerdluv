@@ -91,10 +91,10 @@ functions declared at the top or bottom of your file. You will also lose points 
 dynamic content into the page using PHP expression blocks, <?= ... ?> , as taught in class.
 - [x] Another grading focus is PHP commenting. Put a descriptive comment header at the top of each file, each function, and
 each section of PHP code.
-- [ ] Format your HTML and PHP code similarly to the examples from class. Properly use whitespace and indentation. Do not
+- [x] Format your HTML and PHP code similarly to the examples from class. Properly use whitespace and indentation. Do not
 place more than one block element on a line or begin a block element past the 100th character.
-- [ ] Part of your grade will also come from successfully uploading your files to the web. You should place your files into a
+- [x] Part of your grade will also come from successfully uploading your files to the web. You should place your files into a
 hosting server. Some are free, such as https://www.000webhost.com and https://x10hosting.com (use your gmail address to
 sign up). Your page should be accessible from anywhere.
-- [ ] Submit your assignment online at http://www.networks.howard.edu/lij/courses/submit_hw.html. The following files should
+- [x] Submit your assignment online at http://www.networks.howard.edu/lij/courses/submit_hw.html. The following files should
 be submitted after zipped into a single archive:
